@@ -150,12 +150,21 @@
       transform: translateY(-1px);
       box-shadow: 0 8px 22px rgba(232, 139, 88, 0.45);
     }
-    @media (max-width: 600px) {
-      .nav-cta { padding: 8px 14px; font-size: 12.5px; }
-    }
-    @media (max-width: 460px) {
-      /* On small screens hide the text links but keep the CTA */
-      .nav-text-links { display: none; }
+    /* Mobile nav: clean and compact */
+    @media (max-width: 720px) {
+      nav {
+        padding: 12px 18px !important;
+      }
+      .logo { font-size: 19px !important; gap: 8px !important; }
+      .logo-mark { width: 28px !important; height: 28px !important; }
+      .logo-mark svg { width: 20px !important; height: 20px !important; }
+      .nav-text-links { display: none !important; }
+      .nav-cta {
+        padding: 9px 16px !important;
+        font-size: 13px !important;
+        box-shadow: 0 4px 12px rgba(232, 139, 88, 0.3);
+      }
+      .nav-cta-icon { display: none !important; }
     }
 
     /* ============================================================
