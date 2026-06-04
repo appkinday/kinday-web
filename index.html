@@ -531,7 +531,7 @@
 
     @media (max-width: 720px) {
       /* Showcase: tight vertical stack — sections feel like one flow */
-      .peanut-section { padding: 36px 22px 40px !important; }
+      .peanut-section { padding: 32px 22px 32px !important; }
       .peanut-inner {
         display: flex !important;
         grid-template-columns: none !important;
@@ -647,7 +647,7 @@
         grid-template-columns: 1fr !important;
         gap: 28px !important;
       }
-      .question-hook { padding: 40px 22px !important; min-height: auto !important; }
+      .question-hook { padding: 32px 22px 40px !important; min-height: auto !important; }
       .question-title { font-size: clamp(28px, 7vw, 36px) !important; line-height: 1.05 !important; }
       .question-right { padding: 20px !important; }
       .question-sub { font-size: 14.5px !important; margin-bottom: 24px !important; }
@@ -659,7 +659,7 @@
 
     /* Testimonials: horizontal swipe carousel on mobile */
     @media (max-width: 720px) {
-      .testimonials-section { padding: 40px 0 48px !important; }
+      .testimonials-section { padding: 32px 0 32px !important; }
       .testimonials-inner { padding: 0; }
       .testimonials-header { padding: 0 22px !important; margin-bottom: 24px !important; }
       .testimonials-grid {
@@ -684,9 +684,10 @@
       .testimonial-quote { margin-top: 44px !important; font-size: 17px !important; }
     }
 
-    /* FAQ: mobile-friendly */
+    /* FAQ: mobile-friendly + tighter header */
     @media (max-width: 720px) {
-      .faq-section { padding: 40px 22px 48px !important; }
+      .faq-section { padding: 32px 22px 32px !important; }
+      .faq-header { margin-bottom: 24px !important; }
     }
 
     /* Stats: smaller numbers but still legible */
@@ -697,14 +698,14 @@
 
     /* Final CTA: less aggressive padding */
     @media (max-width: 720px) {
-      .step-final { padding: 48px 22px 56px !important; }
+      .step-final { padding: 40px 22px 48px !important; }
       .step-final .step-title { font-size: clamp(32px, 8vw, 40px) !important; }
     }
 
     /* Footer: stack columns properly */
     @media (max-width: 720px) {
-      footer { padding: 40px 22px 24px !important; }
-      .footer-top { gap: 32px !important; margin-bottom: 32px !important; }
+      footer { padding: 32px 22px 20px !important; }
+      .footer-top { gap: 28px !important; margin-bottom: 24px !important; }
     }
 
         /* ============================================================
