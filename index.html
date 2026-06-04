@@ -1916,6 +1916,27 @@
       font-weight: 500;
       opacity: 0.8;
     }
+
+    /* Apple App Store badge */
+    .appstore-badge {
+      display: inline-block;
+      margin: 16px 0;
+      transition: transform 200ms, opacity 200ms;
+      line-height: 0;
+    }
+    .appstore-badge svg {
+      width: 145px;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+    }
+    .appstore-badge:hover {
+      transform: translateY(-2px);
+      opacity: 0.92;
+    }
+    @media (max-width: 520px) {
+      .appstore-badge { margin: 14px auto; }
+    }
     .footer-col h4 {
       font-size: 11px;
       font-weight: 800;
@@ -2447,6 +2468,20 @@
             kinday
           </a>
           <p class="footer-tagline">Respira, podemos con esto. La primera app que aterriza tu día sin sumar a tu cabeza.</p>
+
+          <a href="#" class="appstore-badge" aria-label="Descarga en App Store">
+            <svg viewBox="0 0 135 40" xmlns="http://www.w3.org/2000/svg">
+              <!-- Black rounded background -->
+              <rect width="135" height="40" rx="6" fill="#000"/>
+              <!-- Apple logo -->
+              <path d="M27.2 19.5c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.9-.9-3.1-.8-1.6 0-3.1.9-3.9 2.4-1.7 2.9-.4 7.1 1.2 9.5.8 1.1 1.7 2.4 2.9 2.4 1.2 0 1.6-.8 3.1-.8 1.5 0 1.8.8 3.1.8 1.3 0 2.1-1.2 2.9-2.3.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.5-1-2.5-3.8zm-2.4-7c.6-.8 1.1-1.9 1-3-.9 0-2.1.6-2.7 1.4-.6.7-1.2 1.8-1 2.9.9 0 2-.5 2.7-1.3z" fill="#fff"/>
+              <!-- Download on the -->
+              <text x="36" y="17" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="7" fill="#fff" font-weight="500">Descarga en</text>
+              <!-- App Store -->
+              <text x="36" y="30" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="15" fill="#fff" font-weight="600" letter-spacing="-0.4">App Store</text>
+            </svg>
+          </a>
+
           <p class="footer-made">Hecho con cariño en México 🇲🇽</p>
         </div>
 
