@@ -506,13 +506,13 @@
 
 
     @media (max-width: 720px) {
-      /* Showcase: vertical stack with section eyebrows + accent dividers */
+      /* Showcase: tight vertical stack */
       .peanut-section { padding: 56px 22px 64px !important; }
       .peanut-inner {
         display: flex !important;
         grid-template-columns: none !important;
         flex-direction: column !important;
-        gap: 64px !important;
+        gap: 32px !important;
         padding: 0 !important;
         overflow: visible !important;
       }
@@ -532,22 +532,12 @@
         letter-spacing: 1.6px;
         color: var(--coral);
         text-transform: uppercase;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
         text-align: center;
       }
 
-      /* Soft accent line between sections */
-      .peanut-col:not(:last-child)::after {
-        content: '';
-        display: block;
-        width: 32px;
-        height: 1.5px;
-        background: linear-gradient(90deg, transparent, var(--sand), transparent);
-        margin: 56px auto -8px;
-      }
-
       .peanut-title { font-size: 28px !important; margin-bottom: 12px !important; }
-      .peanut-desc { font-size: 14.5px !important; margin-bottom: 28px !important; }
+      .peanut-desc { font-size: 14.5px !important; margin-bottom: 24px !important; }
 
       /* ====== SIMPLIFIED MOBILE VISUALS ======
          Reset to clean centered single-stack
