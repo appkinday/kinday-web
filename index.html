@@ -285,126 +285,207 @@
       z-index: 1;
     }
     .phone-screen {
-      background: #FFFCF7;
+      background: #FFFBF6;
       border-radius: 34px;
       overflow: hidden;
-      padding: 14px 16px 16px;
-      min-height: 580px;
+      min-height: 620px;
       display: flex; flex-direction: column;
-      gap: 12px;
       text-align: left;
+      position: relative;
     }
     @media (max-width: 880px) {
       .phone-frame { width: 280px; }
-      .phone-screen { min-height: 540px; }
+      .phone-screen { min-height: 580px; }
     }
 
     /* Status bar */
     .ps-statusbar {
       display: flex; justify-content: space-between; align-items: center;
       font-size: 11px; font-weight: 700;
-      color: var(--charcoal);
-      padding: 0 4px;
+      color: #FFFFFF;
+      padding: 8px 18px 4px;
+      background: #E88B58;
     }
-    .ps-icons { font-size: 9px; letter-spacing: 1px; opacity: 0.6; }
+    .ps-icons { font-size: 9px; letter-spacing: 1.5px; opacity: 0.85; }
 
-    /* Header */
-    .ps-header {
-      display: flex; justify-content: space-between; align-items: flex-start;
-      margin-top: 4px;
+    /* === Coral gradient header (matches real Kinday Header.js) === */
+    .ps-header-coral {
+      padding: 6px 18px 16px;
+      background: linear-gradient(135deg, #ED9968 0%, #D67740 100%);
+      color: #FFFFFF;
+    }
+    .ps-header-top {
+      display: flex; justify-content: space-between; align-items: center;
     }
     .ps-date {
-      font-size: 11.5px; font-weight: 600;
-      color: var(--gray); letter-spacing: -0.1px;
+      font-size: 10px; font-weight: 700;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 1.3px;
     }
-    .ps-title {
-      font-size: 28px; font-weight: 700;
-      color: var(--charcoal); letter-spacing: -0.8px;
+    .ps-plus {
+      width: 26px; height: 26px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 400;
+      color: #FFFFFF;
       line-height: 1;
     }
-    .ps-avatar {
-      width: 32px; height: 32px;
-      border-radius: 50%;
-      background: var(--coral);
-      color: white;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 13px; font-weight: 800;
+    .ps-greeting {
+      font-size: 19px; font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: -0.4px;
+      line-height: 1.15;
+      margin-top: 10px;
     }
-
-    /* Mood pill */
-    .ps-mood {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--coral-soft);
-      padding: 8px 12px;
+    .ps-tagline {
+      font-size: 11.5px;
+      color: rgba(255,255,255,0.8);
+      margin-top: 4px;
+      letter-spacing: -0.1px;
+    }
+    .ps-mood-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.18);
+      padding: 5px 10px;
       border-radius: 999px;
-      font-size: 11px;
-      color: var(--charcoal);
-      align-self: flex-start;
+      margin-top: 10px;
     }
-    .ps-mood strong { font-weight: 700; color: var(--coral-deep); }
-
-    /* Pillar block */
-    .ps-pillar {
-      background: #FFFFFF;
-      border-radius: 14px;
-      padding: 12px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-      border-left: 3px solid var(--c, var(--coral));
-    }
-    .ps-pillar-head {
-      display: flex; align-items: center; gap: 6px;
-      margin-bottom: 8px;
-    }
-    .ps-pillar-dot {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: var(--c);
-    }
-    .ps-pillar-name {
-      font-size: 11.5px; font-weight: 800;
-      color: var(--charcoal);
-      letter-spacing: 0.3px; text-transform: uppercase;
-    }
-    .ps-pillar-count {
-      margin-left: auto;
+    .ps-mood-emoji { font-size: 12px; }
+    .ps-mood-label {
       font-size: 10.5px; font-weight: 700;
+      color: #FFFFFF; letter-spacing: -0.1px;
+    }
+    .ps-mood-chev {
+      font-size: 8px; color: rgba(255,255,255,0.75);
+      margin-left: 1px;
+    }
+
+    /* === Pillars bar (collapsed, like real app) === */
+    .ps-pillars-bar {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 18px;
+      background: #FFFBF6;
+    }
+    .ps-pillars-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid #E8DED4;
+      font-size: 11.5px; font-weight: 600;
       color: var(--gray);
-      background: rgba(0, 0, 0, 0.04);
-      padding: 2px 7px;
-      border-radius: 6px;
+      letter-spacing: -0.05px;
     }
-    .ps-task {
+    .ps-pillars-chev { font-size: 9px; opacity: 0.6; }
+    .ps-pillars-edit {
+      width: 28px; height: 28px;
+      border-radius: 14px;
+      border: 1px dashed #E8DED4;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px;
+      color: var(--gray);
+      margin-left: auto;
+    }
+    .ps-pillars-balance {
+      width: 28px; height: 28px;
+      border-radius: 14px;
+      border: 1px dashed #E8DED4;
+      display: flex; align-items: flex-end; justify-content: center;
+      gap: 2px;
+      padding-bottom: 8px;
+    }
+    .ps-pillars-balance span {
+      width: 3px;
+      background: var(--gray);
+      border-radius: 1px;
+    }
+    .ps-pillars-balance span:nth-child(1) { height: 5px; }
+    .ps-pillars-balance span:nth-child(2) { height: 11px; }
+    .ps-pillars-balance span:nth-child(3) { height: 7px; }
+
+    /* === Task list (flat, like real app) === */
+    .ps-tasks {
+      flex: 1;
+      display: flex; flex-direction: column;
+      gap: 8px;
+      padding: 6px 14px 16px;
+      overflow: hidden;
+    }
+    .ps-task-card {
       display: flex; align-items: flex-start; gap: 10px;
-      padding: 6px 0;
+      padding: 11px 12px;
+      background: #FFFFFF;
+      border: 1px solid #F0E8DE;
+      border-radius: 14px;
     }
-    .ps-task + .ps-task { border-top: 1px solid rgba(0, 0, 0, 0.04); }
     .ps-check {
       width: 18px; height: 18px;
-      border: 1.5px solid var(--sand);
+      border: 1.5px solid #E8DED4;
       border-radius: 50%;
       flex-shrink: 0;
-      margin-top: 2px;
+      margin-top: 1px;
       position: relative;
+      background: transparent;
     }
     .ps-check.checked {
-      background: var(--c);
-      border-color: var(--c);
+      background: #E88B58;
+      border-color: #E88B58;
     }
     .ps-check.checked::after {
       content: '';
       width: 8px; height: 4px;
-      border-left: 1.5px solid #fff;
-      border-bottom: 1.5px solid #fff;
+      border-left: 1.5px solid #FFFFFF;
+      border-bottom: 1.5px solid #FFFFFF;
       position: absolute;
       top: 4px; left: 3px;
       transform: rotate(-45deg);
     }
+    .ps-task-body { flex: 1; min-width: 0; }
+    .ps-task-title {
+      font-size: 13px; font-weight: 600;
+      color: var(--charcoal);
+      letter-spacing: -0.1px;
+      line-height: 1.3;
+    }
+    .ps-task-title.done {
+      color: var(--gray);
+      text-decoration: line-through;
+    }
+    .ps-task-row {
+      display: flex; align-items: center; gap: 7px;
+      margin-top: 7px;
+      flex-wrap: wrap;
+    }
+    /* Pillar tags — uses real Kinday theme.js palette */
+    .ps-pill {
+      font-size: 9.5px; font-weight: 700;
+      padding: 3px 7px;
+      border-radius: 999px;
+      letter-spacing: -0.05px;
+      display: inline-flex; align-items: center; gap: 3px;
+    }
+    .ps-pill[data-p="hijos"]    { background: #FFF0F5; color: #D4547A; }
+    .ps-pill[data-p="casa"]     { background: #E8F8EC; color: #1F8A4D; }
+    .ps-pill[data-p="personal"] { background: #F3EEFF; color: #7A4DB5; }
+    .ps-pill[data-p="escuela"]  { background: #EEF2FF; color: #4A5FD5; }
+    .ps-task-time {
+      font-size: 10px; color: var(--gray); font-weight: 500;
+    }
+    .ps-task-who {
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: #4A5FD5;
+      color: #FFFFFF;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 8.5px; font-weight: 800;
+      letter-spacing: 0;
+    }
 
     /* ===== LIVE ANIMATIONS — task self-checks in loop ===== */
     @keyframes liveCheckFill-1 {
-      0%, 30%        { background: transparent; border-color: var(--sand); }
-      36%, 90%       { background: var(--c); border-color: var(--c); }
-      96%, 100%      { background: transparent; border-color: var(--sand); }
+      0%, 30%        { background: transparent; border-color: #E8DED4; }
+      36%, 90%       { background: #E88B58; border-color: #E88B58; }
+      96%, 100%      { background: transparent; border-color: #E8DED4; }
     }
     @keyframes liveCheckMark-1 {
       0%, 30%        { opacity: 0; transform: rotate(-45deg) scale(0.3); }
@@ -418,9 +499,9 @@
     }
 
     @keyframes liveCheckFill-2 {
-      0%, 58%        { background: transparent; border-color: var(--sand); }
-      64%, 95%       { background: var(--c); border-color: var(--c); }
-      99%, 100%      { background: transparent; border-color: var(--sand); }
+      0%, 58%        { background: transparent; border-color: #E8DED4; }
+      64%, 95%       { background: #E88B58; border-color: #E88B58; }
+      99%, 100%      { background: transparent; border-color: #E8DED4; }
     }
     @keyframes liveCheckMark-2 {
       0%, 58%        { opacity: 0; transform: rotate(-45deg) scale(0.3); }
@@ -433,10 +514,10 @@
       99%, 100%      { color: var(--charcoal); text-decoration: none; }
     }
 
-    .ps-task.live-1 .ps-check {
+    .ps-task-card.live-1 .ps-check {
       animation: liveCheckFill-1 11s ease-in-out infinite;
     }
-    .ps-task.live-1 .ps-check::after {
+    .ps-task-card.live-1 .ps-check::after {
       content: '';
       width: 8px; height: 4px;
       border-left: 1.5px solid #fff;
@@ -447,14 +528,14 @@
       opacity: 0;
       animation: liveCheckMark-1 11s ease-in-out infinite;
     }
-    .ps-task.live-1 .ps-task-name {
+    .ps-task-card.live-1 .ps-task-title {
       animation: liveTextDone-1 11s ease-in-out infinite;
     }
 
-    .ps-task.live-2 .ps-check {
+    .ps-task-card.live-2 .ps-check {
       animation: liveCheckFill-2 11s ease-in-out infinite;
     }
-    .ps-task.live-2 .ps-check::after {
+    .ps-task-card.live-2 .ps-check::after {
       content: '';
       width: 8px; height: 4px;
       border-left: 1.5px solid #fff;
@@ -465,34 +546,19 @@
       opacity: 0;
       animation: liveCheckMark-2 11s ease-in-out infinite;
     }
-    .ps-task.live-2 .ps-task-name {
+    .ps-task-card.live-2 .ps-task-title {
       animation: liveTextDone-2 11s ease-in-out infinite;
     }
 
-    /* Partner avatar pulse — fires around the time live-2 (Diego's task) gets checked */
+    /* Partner avatar pulse on Diego's "D" badge — fires around time live-2 checks */
     @keyframes partnerPing {
       0%, 56%        { box-shadow: 0 0 0 0 rgba(74, 95, 213, 0); }
       62%            { box-shadow: 0 0 0 0 rgba(74, 95, 213, 0.55); }
-      72%            { box-shadow: 0 0 0 7px rgba(74, 95, 213, 0); }
+      72%            { box-shadow: 0 0 0 6px rgba(74, 95, 213, 0); }
       100%           { box-shadow: 0 0 0 0 rgba(74, 95, 213, 0); }
     }
-    .app-showcase .ps-pa-2 {
+    .ps-task-card.live-2 .ps-task-who {
       animation: partnerPing 11s ease-out infinite;
-    }
-
-    /* Live indicator dot next to "Hoy" — shows app is real-time */
-    .ps-live-dot {
-      display: inline-block;
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: #1F8A4D;
-      margin-left: 8px;
-      vertical-align: middle;
-      animation: liveDotPulse 2.4s ease-in-out infinite;
-    }
-    @keyframes liveDotPulse {
-      0%, 100%       { opacity: 1; transform: scale(1); }
-      50%            { opacity: 0.5; transform: scale(0.85); }
     }
     .ps-task-name {
       font-size: 12.5px; font-weight: 600;
@@ -2533,70 +2599,89 @@
             <!-- Status bar -->
             <div class="ps-statusbar">
               <span class="ps-time">9:41</span>
-              <span class="ps-icons">●●● ▼ 􀛨</span>
+              <span class="ps-icons">●●● 􀙇 􀛨</span>
             </div>
 
-            <!-- Header -->
-            <div class="ps-header">
-              <div>
-                <div class="ps-date">Martes 4 de junio</div>
-                <div class="ps-title">Hoy<span class="ps-live-dot" title="Sync en vivo"></span></div>
+            <!-- Coral gradient header (real Kinday) -->
+            <div class="ps-header-coral">
+              <div class="ps-header-top">
+                <span class="ps-date">MARTES, 4 JUNIO</span>
+                <span class="ps-plus">+</span>
               </div>
-              <div class="ps-avatar">M</div>
-            </div>
-
-            <!-- Mood pill -->
-            <div class="ps-mood">
-              <span>🌿</span>
-              <span><strong>Día tranquilo</strong> · 6 tareas</span>
-            </div>
-
-            <!-- Pillar 1: Hijos -->
-            <div class="ps-pillar" style="--c:#D4547A;">
-              <div class="ps-pillar-head">
-                <span class="ps-pillar-dot"></span>
-                <span class="ps-pillar-name">Hijos</span>
-                <span class="ps-pillar-count">3</span>
+              <div class="ps-greeting">Buenos días,<br>Sofía 👋</div>
+              <div class="ps-tagline">Sin prisa, sin culpa</div>
+              <div class="ps-mood-pill">
+                <span class="ps-mood-emoji">😊</span>
+                <span class="ps-mood-label">Bien</span>
+                <span class="ps-mood-chev">▾</span>
               </div>
-              <div class="ps-task live live-1">
+            </div>
+
+            <!-- Pillars bar (collapsed state, like real app) -->
+            <div class="ps-pillars-bar">
+              <div class="ps-pillars-chip">
+                <span>Pilares</span>
+                <span class="ps-pillars-chev">▾</span>
+              </div>
+              <div class="ps-pillars-edit">✎</div>
+              <div class="ps-pillars-balance">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+
+            <!-- Task list (flat, with pillar tags inside cards) -->
+            <div class="ps-tasks">
+
+              <!-- Task 1 — animates self-check (you) -->
+              <div class="ps-task-card live live-1">
                 <div class="ps-check"></div>
-                <div>
-                  <div class="ps-task-name">Lonchera Mateo</div>
-                  <div class="ps-task-meta">7:00 am · Tú</div>
+                <div class="ps-task-body">
+                  <div class="ps-task-title">Lonchera Mateo</div>
+                  <div class="ps-task-row">
+                    <span class="ps-pill" data-p="hijos">👶 Hijos</span>
+                    <span class="ps-task-time">7:00 am</span>
+                  </div>
                 </div>
               </div>
-              <div class="ps-task">
+
+              <!-- Task 2 — already done by Diego -->
+              <div class="ps-task-card">
                 <div class="ps-check checked"></div>
-                <div>
-                  <div class="ps-task-name done">Recoger a Ana del kinder</div>
-                  <div class="ps-task-meta">2:30 pm · Diego</div>
+                <div class="ps-task-body">
+                  <div class="ps-task-title done">Recoger Ana del kinder</div>
+                  <div class="ps-task-row">
+                    <span class="ps-pill" data-p="hijos">👶 Hijos</span>
+                    <span class="ps-task-time">2:30 pm</span>
+                    <span class="ps-task-who">D</span>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Pillar 2: Casa -->
-            <div class="ps-pillar" style="--c:#1F8A4D;">
-              <div class="ps-pillar-head">
-                <span class="ps-pillar-dot"></span>
-                <span class="ps-pillar-name">Casa</span>
-                <span class="ps-pillar-count">2</span>
-              </div>
-              <div class="ps-task live live-2">
+              <!-- Task 3 — animates self-check (Diego via sync) -->
+              <div class="ps-task-card live live-2">
                 <div class="ps-check"></div>
-                <div>
-                  <div class="ps-task-name">Pagar luz</div>
-                  <div class="ps-task-meta">Antes 6 pm · Diego</div>
+                <div class="ps-task-body">
+                  <div class="ps-task-title">Pagar luz</div>
+                  <div class="ps-task-row">
+                    <span class="ps-pill" data-p="casa">🏠 Casa</span>
+                    <span class="ps-task-time">6:00 pm</span>
+                    <span class="ps-task-who">D</span>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Partner bar -->
-            <div class="ps-partner">
-              <div class="ps-partner-avatars">
-                <span class="ps-pa">M</span>
-                <span class="ps-pa ps-pa-2">D</span>
+              <!-- Task 4 — personal time, protected -->
+              <div class="ps-task-card">
+                <div class="ps-check"></div>
+                <div class="ps-task-body">
+                  <div class="ps-task-title">Yoga 30 min</div>
+                  <div class="ps-task-row">
+                    <span class="ps-pill" data-p="personal">💆‍♀️ Tú</span>
+                    <span class="ps-task-time">8:00 pm</span>
+                  </div>
+                </div>
               </div>
-              <div class="ps-partner-text">Compartido con <strong>Diego</strong></div>
+
             </div>
           </div>
         </div>
