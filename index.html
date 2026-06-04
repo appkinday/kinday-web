@@ -186,6 +186,266 @@
        SHOWCASE — Peanut-style 3 columns with layered cards
        ============================================================ */
 
+    /* ==========================================================
+       APP SHOWCASE — Single clean phone with day view
+       ========================================================== */
+    .app-showcase {
+      padding: 100px 28px 80px;
+      background: var(--ivory);
+      position: relative;
+    }
+    .app-showcase-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    @media (max-width: 880px) {
+      .app-showcase { padding: 56px 22px 56px; }
+      .app-showcase-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+    }
+
+    .app-eyebrow {
+      font-size: 12px; font-weight: 800;
+      letter-spacing: 2px; color: var(--coral);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .app-showcase-title {
+      font-size: clamp(34px, 4.4vw, 48px);
+      font-weight: 600;
+      letter-spacing: -1.4px;
+      line-height: 1.0;
+      color: var(--charcoal);
+      margin-bottom: 18px;
+    }
+    .app-showcase-desc {
+      font-size: 16px;
+      color: var(--gray);
+      line-height: 1.55;
+      margin-bottom: 32px;
+      max-width: 460px;
+    }
+    @media (max-width: 880px) {
+      .app-showcase-desc { margin-left: auto; margin-right: auto; }
+    }
+
+    .app-features {
+      display: flex; flex-direction: column;
+      gap: 18px;
+    }
+    @media (max-width: 880px) {
+      .app-features { text-align: left; max-width: 380px; margin: 0 auto; }
+    }
+    .app-feature {
+      display: flex; align-items: flex-start; gap: 14px;
+    }
+    .app-feature-icon {
+      width: 32px; height: 32px;
+      background: var(--coral-soft);
+      color: var(--coral-deep);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; font-weight: 800;
+      flex-shrink: 0;
+    }
+    .app-feature-title {
+      font-size: 14.5px; font-weight: 700;
+      color: var(--charcoal);
+      letter-spacing: -0.2px;
+      margin-bottom: 2px;
+    }
+    .app-feature-text {
+      font-size: 13.5px; color: var(--gray);
+      line-height: 1.5;
+    }
+
+    /* Phone mockup */
+    .app-showcase-phone {
+      display: flex; justify-content: center;
+      position: relative;
+    }
+    .app-showcase-phone::before {
+      content: '';
+      position: absolute;
+      inset: -40px;
+      background: radial-gradient(ellipse at center, rgba(232, 139, 88, 0.18) 0%, transparent 65%);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .phone-frame {
+      position: relative;
+      width: 300px;
+      background: #1a1a1a;
+      border-radius: 42px;
+      padding: 10px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.18), 0 10px 24px rgba(0, 0, 0, 0.06);
+      z-index: 1;
+    }
+    .phone-screen {
+      background: #FFFCF7;
+      border-radius: 34px;
+      overflow: hidden;
+      padding: 14px 16px 16px;
+      min-height: 580px;
+      display: flex; flex-direction: column;
+      gap: 12px;
+      text-align: left;
+    }
+    @media (max-width: 880px) {
+      .phone-frame { width: 280px; }
+      .phone-screen { min-height: 540px; }
+    }
+
+    /* Status bar */
+    .ps-statusbar {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 11px; font-weight: 700;
+      color: var(--charcoal);
+      padding: 0 4px;
+    }
+    .ps-icons { font-size: 9px; letter-spacing: 1px; opacity: 0.6; }
+
+    /* Header */
+    .ps-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-top: 4px;
+    }
+    .ps-date {
+      font-size: 11.5px; font-weight: 600;
+      color: var(--gray); letter-spacing: -0.1px;
+    }
+    .ps-title {
+      font-size: 28px; font-weight: 700;
+      color: var(--charcoal); letter-spacing: -0.8px;
+      line-height: 1;
+    }
+    .ps-avatar {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--coral);
+      color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 800;
+    }
+
+    /* Mood pill */
+    .ps-mood {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--coral-soft);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      color: var(--charcoal);
+      align-self: flex-start;
+    }
+    .ps-mood strong { font-weight: 700; color: var(--coral-deep); }
+
+    /* Pillar block */
+    .ps-pillar {
+      background: #FFFFFF;
+      border-radius: 14px;
+      padding: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      border-left: 3px solid var(--c, var(--coral));
+    }
+    .ps-pillar-head {
+      display: flex; align-items: center; gap: 6px;
+      margin-bottom: 8px;
+    }
+    .ps-pillar-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--c);
+    }
+    .ps-pillar-name {
+      font-size: 11.5px; font-weight: 800;
+      color: var(--charcoal);
+      letter-spacing: 0.3px; text-transform: uppercase;
+    }
+    .ps-pillar-count {
+      margin-left: auto;
+      font-size: 10.5px; font-weight: 700;
+      color: var(--gray);
+      background: rgba(0, 0, 0, 0.04);
+      padding: 2px 7px;
+      border-radius: 6px;
+    }
+    .ps-task {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 6px 0;
+    }
+    .ps-task + .ps-task { border-top: 1px solid rgba(0, 0, 0, 0.04); }
+    .ps-check {
+      width: 18px; height: 18px;
+      border: 1.5px solid var(--sand);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 2px;
+      position: relative;
+    }
+    .ps-check.checked {
+      background: var(--c);
+      border-color: var(--c);
+    }
+    .ps-check.checked::after {
+      content: '';
+      width: 8px; height: 4px;
+      border-left: 1.5px solid #fff;
+      border-bottom: 1.5px solid #fff;
+      position: absolute;
+      top: 4px; left: 3px;
+      transform: rotate(-45deg);
+    }
+    .ps-task-name {
+      font-size: 12.5px; font-weight: 600;
+      color: var(--charcoal);
+      letter-spacing: -0.1px;
+      line-height: 1.3;
+    }
+    .ps-task-name.done {
+      color: var(--gray);
+      text-decoration: line-through;
+    }
+    .ps-task-meta {
+      font-size: 10.5px;
+      color: var(--gray);
+      margin-top: 2px;
+    }
+
+    /* Partner sync bar */
+    .ps-partner {
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(232, 139, 88, 0.08);
+      padding: 10px 12px;
+      border-radius: 12px;
+      margin-top: auto;
+    }
+    .ps-partner-avatars {
+      display: flex;
+    }
+    .ps-pa {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--coral);
+      color: white;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 10px; font-weight: 800;
+      border: 1.5px solid #FFFCF7;
+    }
+    .ps-pa-2 {
+      background: #4A5FD5;
+      margin-left: -8px;
+    }
+    .ps-partner-text {
+      font-size: 11.5px;
+      color: var(--charcoal);
+      letter-spacing: -0.1px;
+    }
+    .ps-partner-text strong { color: var(--coral-deep); font-weight: 700; }
+
     .peanut-section {
       padding: 100px 28px 120px;
       background: linear-gradient(180deg, var(--pastel-2) 0%, var(--coral-soft) 100%);
@@ -1115,6 +1375,37 @@
       text-transform: uppercase;
       animation: stepFade 700ms cubic-bezier(0.33, 1, 0.68, 1) 200ms backwards;
     }
+    .trust-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--charcoal);
+      letter-spacing: -0.1px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(232, 139, 88, 0.18);
+      animation: stepFade 700ms cubic-bezier(0.33, 1, 0.68, 1) 200ms backwards;
+    }
+    .trust-chip strong { color: var(--coral-deep); font-weight: 700; }
+    .trust-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #1F8A4D;
+      box-shadow: 0 0 0 3px rgba(31, 138, 77, 0.18);
+      animation: trustPulse 2s ease-in-out infinite;
+    }
+    @keyframes trustPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.9); }
+    }
+    @media (max-width: 880px) {
+      .trust-chip { margin-left: auto; margin-right: auto; font-size: 11.5px; padding: 7px 12px; }
+    }
+
     .question-title {
       font-size: clamp(40px, 6.4vw, 64px);
       font-weight: 600;
@@ -1893,10 +2184,27 @@
       opacity: 0.8;
     }
 
+    /* Download block — anchor target for CTAs */
+    .footer-download {
+      margin: 16px 0 0;
+      scroll-margin-top: 80px;
+    }
+    .footer-download-soon {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--coral);
+      letter-spacing: 0.4px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    @media (max-width: 520px) {
+      .footer-download { text-align: center; }
+    }
+
     /* Apple App Store badge (official SVG) */
     .appstore-badge {
       display: inline-block;
-      margin: 16px 0;
+      margin: 4px 0 0;
       transition: transform 200ms, opacity 200ms;
       line-height: 0;
     }
@@ -2014,7 +2322,7 @@
         <span class="nav-text-links" style="display: flex; gap: 28px; align-items: center;">
           <a href="#valor">Cómo funciona</a>
         </span>
-        <a href="#" class="nav-cta">
+        <a href="#descarga" class="nav-cta">
           <span class="nav-cta-icon">↓</span>
           <span class="nav-cta-text-desktop">Descarga app</span>
           <span class="nav-cta-text-mobile">Descarga</span>
@@ -2031,13 +2339,17 @@
 
       <!-- LEFT: title and brand explanation -->
       <div class="question-left">
+        <div class="trust-chip">
+          <span class="trust-dot"></span>
+          <span><strong>Gratis siempre</strong> · Sin anuncios · 2 min para empezar</span>
+        </div>
         <h1 class="question-title">Tu día,<br>sin cabeza llena.</h1>
         <p class="question-sub">
           Kinday aterriza tus tareas en pilares y reparte la carga con quien comparte tu hogar. Sin sumar a tu cabeza.
         </p>
 
         <div class="hook-ctas">
-          <a href="#" class="hook-btn hook-btn-primary">Descarga gratis →</a>
+          <a href="#descarga" class="hook-btn hook-btn-primary">Descarga gratis →</a>
           <a href="#valor" class="hook-btn hook-btn-secondary">¿Ya tienes la app?</a>
         </div>
       </div>
@@ -2080,6 +2392,120 @@
 
       </div>
       <!-- /question-right -->
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       APP SHOWCASE — Single clean phone with day view
+       ============================================================ -->
+  <section class="app-showcase reveal">
+    <div class="app-showcase-inner">
+
+      <div class="app-showcase-copy">
+        <div class="app-eyebrow">Así se ve por dentro</div>
+        <h2 class="app-showcase-title">Tu día,<br>en tu bolsillo.</h2>
+        <p class="app-showcase-desc">Pilares con colores. Tareas claras. Reparto justo con quien comparte tu hogar. Todo en una vista.</p>
+
+        <div class="app-features">
+          <div class="app-feature">
+            <span class="app-feature-icon">✱</span>
+            <div>
+              <div class="app-feature-title">4 pilares de tu vida</div>
+              <div class="app-feature-text">Hijos, casa, personal, escuela — separados por color.</div>
+            </div>
+          </div>
+          <div class="app-feature">
+            <span class="app-feature-icon">↔</span>
+            <div>
+              <div class="app-feature-title">Reparto en tiempo real</div>
+              <div class="app-feature-text">Tu pareja ve sus tareas. Sin recordar, sin pedir.</div>
+            </div>
+          </div>
+          <div class="app-feature">
+            <span class="app-feature-icon">◐</span>
+            <div>
+              <div class="app-feature-title">Solo lo de hoy</div>
+              <div class="app-feature-text">Sin overwhelm. Sin to-do lists de 47 items.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="app-showcase-phone">
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <!-- Status bar -->
+            <div class="ps-statusbar">
+              <span class="ps-time">9:41</span>
+              <span class="ps-icons">●●● ▼ 􀛨</span>
+            </div>
+
+            <!-- Header -->
+            <div class="ps-header">
+              <div>
+                <div class="ps-date">Martes 4 de junio</div>
+                <div class="ps-title">Hoy</div>
+              </div>
+              <div class="ps-avatar">M</div>
+            </div>
+
+            <!-- Mood pill -->
+            <div class="ps-mood">
+              <span>🌿</span>
+              <span><strong>Día tranquilo</strong> · 6 tareas</span>
+            </div>
+
+            <!-- Pillar 1: Hijos -->
+            <div class="ps-pillar" style="--c:#D4547A;">
+              <div class="ps-pillar-head">
+                <span class="ps-pillar-dot"></span>
+                <span class="ps-pillar-name">Hijos</span>
+                <span class="ps-pillar-count">3</span>
+              </div>
+              <div class="ps-task">
+                <div class="ps-check"></div>
+                <div>
+                  <div class="ps-task-name">Lonchera Mateo</div>
+                  <div class="ps-task-meta">7:00 am · Tú</div>
+                </div>
+              </div>
+              <div class="ps-task">
+                <div class="ps-check checked"></div>
+                <div>
+                  <div class="ps-task-name done">Recoger a Ana del kinder</div>
+                  <div class="ps-task-meta">2:30 pm · Diego</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pillar 2: Casa -->
+            <div class="ps-pillar" style="--c:#1F8A4D;">
+              <div class="ps-pillar-head">
+                <span class="ps-pillar-dot"></span>
+                <span class="ps-pillar-name">Casa</span>
+                <span class="ps-pillar-count">2</span>
+              </div>
+              <div class="ps-task">
+                <div class="ps-check"></div>
+                <div>
+                  <div class="ps-task-name">Pagar luz</div>
+                  <div class="ps-task-meta">Antes 6 pm · Diego</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Partner bar -->
+            <div class="ps-partner">
+              <div class="ps-partner-avatars">
+                <span class="ps-pa">M</span>
+                <span class="ps-pa ps-pa-2">D</span>
+              </div>
+              <div class="ps-partner-text">Compartido con <strong>Diego</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
   </section>
@@ -2415,7 +2841,7 @@
       <h2 class="step-title">Respira.<br>Podemos con esto.</h2>
       <p class="step-sub">Tu primera tarea tarda 30 segundos.</p>
 
-      <a href="#" class="cta-primary">Descarga kinday →</a>
+      <a href="#descarga" class="cta-primary">Descarga kinday →</a>
     </div>
   </section>
 
@@ -2438,9 +2864,12 @@
           </a>
           <p class="footer-tagline">Respira, podemos con esto. La primera app que aterriza tu día sin sumar a tu cabeza.</p>
 
-          <a href="#" class="appstore-badge" aria-label="Download on the App Store">
-            <img src="./appstore-badge.svg?v=2" alt="Download on the App Store">
-          </a>
+          <div id="descarga" class="footer-download">
+            <p class="footer-download-soon">Próximamente · Beta cerrada abierta hoy</p>
+            <a href="https://testflight.apple.com/" class="appstore-badge" aria-label="Download on the App Store">
+              <img src="./appstore-badge.svg?v=2" alt="Download on the App Store">
+            </a>
+          </div>
         </div>
 
         <!-- Producto column -->
