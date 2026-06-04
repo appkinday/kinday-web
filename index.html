@@ -262,40 +262,207 @@
       line-height: 1.5;
     }
 
-    /* Phone mockup */
+    /* App showcase — Headspace-style 2 screens floating, no iPhone frame */
     .app-showcase-phone {
-      display: flex; justify-content: center;
       position: relative;
+      min-height: 580px;
+      width: 100%;
+      max-width: 460px;
+      margin: 0 auto;
     }
-    .app-showcase-phone::before {
-      content: '';
+    .ks-screen {
       position: absolute;
-      inset: -40px;
-      background: radial-gradient(ellipse at center, rgba(232, 139, 88, 0.18) 0%, transparent 65%);
-      z-index: 0;
-      pointer-events: none;
+      width: 240px;
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.12)) drop-shadow(0 6px 12px rgba(0, 0, 0, 0.04));
     }
-    .phone-frame {
-      position: relative;
-      width: 300px;
-      background: #1a1a1a;
-      border-radius: 42px;
-      padding: 10px;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.18), 0 10px 24px rgba(0, 0, 0, 0.06);
+    .ks-screen-1 {
+      top: 30px; left: 0;
+      transform: rotate(-3deg);
+      z-index: 2;
+    }
+    .ks-screen-2 {
+      top: 80px; right: 0;
+      transform: rotate(3deg);
       z-index: 1;
     }
     .phone-screen {
       background: #FFFBF6;
-      border-radius: 34px;
+      border-radius: 28px;
       overflow: hidden;
-      min-height: 620px;
+      min-height: 520px;
       display: flex; flex-direction: column;
       text-align: left;
       position: relative;
     }
     @media (max-width: 880px) {
-      .phone-frame { width: 280px; }
-      .phone-screen { min-height: 580px; }
+      .app-showcase-phone { min-height: 540px; max-width: 380px; }
+      .ks-screen { width: 200px; }
+      .ks-screen-1 { top: 20px; left: 0; }
+      .ks-screen-2 { top: 60px; right: 0; }
+      .phone-screen { min-height: 460px; }
+    }
+
+    /* Decorative floating elements (Headspace-style) */
+    .deco {
+      position: absolute;
+      z-index: 3;
+      pointer-events: none;
+    }
+    .deco-flower {
+      top: 0; left: -10px;
+      transform: rotate(-12deg);
+      animation: floatBob 6s ease-in-out infinite;
+    }
+    .deco-moon {
+      top: 10px; right: -10px;
+      transform: rotate(15deg);
+      animation: floatBob 7s ease-in-out infinite reverse;
+    }
+    .deco-cloud {
+      bottom: 60px; left: -30px;
+      opacity: 0.9;
+      animation: floatBob 8s ease-in-out infinite;
+      animation-delay: -2s;
+    }
+    .deco-spark {
+      top: 200px; right: 10px;
+      animation: floatBob 5s ease-in-out infinite reverse;
+      animation-delay: -1s;
+    }
+    .deco-leaf {
+      bottom: 20px; right: 30px;
+      transform: rotate(20deg);
+      animation: floatBob 7.5s ease-in-out infinite;
+    }
+    @keyframes floatBob {
+      0%, 100% { transform: translate(0, 0) rotate(var(--r, 0deg)); }
+      50%      { transform: translate(0, -8px) rotate(calc(var(--r, 0deg) + 5deg)); }
+    }
+    .deco-flower { --r: -12deg; }
+    .deco-moon { --r: 15deg; }
+    .deco-leaf { --r: 20deg; }
+
+    @media (max-width: 880px) {
+      .deco-flower { width: 60px; height: 60px; top: -10px; left: -15px; }
+      .deco-moon { width: 44px; height: 44px; top: 0; right: -10px; }
+      .deco-cloud { width: 70px; height: 36px; bottom: 40px; left: -25px; }
+      .deco-spark { width: 18px; height: 18px; top: 170px; right: 5px; }
+      .deco-leaf { width: 30px; height: 30px; bottom: 10px; right: 20px; }
+    }
+
+    /* ===== SCREEN 2 — Balance / Reparto view ===== */
+    .ks-balance .ps-header-content { padding: 8px 18px 18px; }
+    .ks-bal-title {
+      font-size: 18px; font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: -0.4px;
+      line-height: 1.15;
+      margin-top: 10px;
+    }
+    .ks-bal-sub {
+      font-size: 11px;
+      color: rgba(255,255,255,0.82);
+      margin-top: 5px;
+    }
+    .ks-bal-content {
+      padding: 12px;
+      display: flex; flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+    .ks-bal-card,
+    .ks-partner-card {
+      background: #FFFFFF;
+      border: 1px solid #F0E8DE;
+      border-radius: 14px;
+      padding: 12px;
+    }
+    .ks-bal-card-head {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 10px;
+    }
+    .ks-bal-card-title {
+      font-size: 12px; font-weight: 700;
+      color: var(--charcoal);
+      letter-spacing: -0.1px;
+    }
+    .ks-bal-card-period {
+      font-size: 10px; font-weight: 700;
+      color: var(--gray);
+      background: #F5F0E8;
+      padding: 3px 8px;
+      border-radius: 999px;
+    }
+    .ks-bal-bar {
+      display: flex;
+      height: 7px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: #F5F0E8;
+    }
+    .ks-bal-bar span { height: 100%; }
+    .ks-bal-legend {
+      display: flex; flex-wrap: wrap;
+      gap: 6px 10px;
+      margin-top: 10px;
+    }
+    .ks-bal-legend span {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 9.5px; font-weight: 600;
+      color: var(--gray);
+    }
+    .ks-bal-legend i {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .ks-partner-head {
+      font-size: 9px; font-weight: 800;
+      letter-spacing: 1.2px;
+      color: var(--gray);
+      margin-bottom: 10px;
+    }
+    .ks-partner-row { margin-bottom: 10px; }
+    .ks-partner-row:last-child { margin-bottom: 0; }
+    .ks-partner-person {
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 5px;
+    }
+    .ks-partner-avatar {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      color: #FFFFFF;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10.5px; font-weight: 800;
+      flex-shrink: 0;
+    }
+    .ks-partner-me { background: #E88B58; }
+    .ks-partner-them { background: #4A5FD5; }
+    .ks-partner-name {
+      font-size: 11.5px; font-weight: 700;
+      color: var(--charcoal);
+      letter-spacing: -0.1px;
+    }
+    .ks-partner-meta {
+      font-size: 9.5px; color: var(--gray);
+      margin-top: 1px;
+    }
+    .ks-partner-pct {
+      margin-left: auto;
+      font-size: 13px; font-weight: 700;
+      color: var(--charcoal);
+    }
+    .ks-partner-row-bar {
+      height: 5px;
+      background: #F5F0E8;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .ks-partner-row-bar span {
+      display: block;
+      height: 100%;
+      border-radius: 999px;
     }
 
     /* === Coral gradient header (matches real Kinday Header.js) === */
@@ -2594,7 +2761,39 @@
       </div>
 
       <div class="app-showcase-phone">
-        <div class="phone-frame">
+
+        <!-- DECORATIVE FLOATING ELEMENTS (Headspace-style) -->
+        <svg class="deco deco-flower" width="80" height="80" viewBox="0 0 100 100" aria-hidden="true">
+          <g fill="#E88B58">
+            <circle cx="50" cy="20" r="14"/>
+            <circle cx="80" cy="40" r="14"/>
+            <circle cx="70" cy="75" r="14"/>
+            <circle cx="30" cy="75" r="14"/>
+            <circle cx="20" cy="40" r="14"/>
+          </g>
+          <circle cx="50" cy="50" r="11" fill="#FFD75E"/>
+        </svg>
+
+        <svg class="deco deco-moon" width="60" height="60" viewBox="0 0 60 60" aria-hidden="true">
+          <path d="M40 8 A22 22 0 1 0 52 40 A18 18 0 1 1 40 8 Z" fill="#C9B5E8"/>
+          <circle cx="55" cy="14" r="3" fill="#FFD75E"/>
+        </svg>
+
+        <svg class="deco deco-cloud" width="90" height="48" viewBox="0 0 90 48" aria-hidden="true">
+          <path d="M20 30 Q10 30 10 22 Q10 14 20 14 Q20 6 32 6 Q42 6 44 14 Q56 14 56 22 Q56 30 46 30 Z M55 36 Q48 36 48 30 Q48 24 55 24 Q56 18 65 18 Q73 18 75 24 Q82 24 82 30 Q82 36 75 36 Z" fill="#FFFFFF"/>
+        </svg>
+
+        <svg class="deco deco-spark" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+          <path d="M11 0 L13 9 L22 11 L13 13 L11 22 L9 13 L0 11 L9 9 Z" fill="#FFD75E"/>
+        </svg>
+
+        <svg class="deco deco-leaf" width="38" height="38" viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M20 4 Q4 12 6 28 Q22 32 34 18 Q36 6 20 4 Z" fill="#7AC586"/>
+          <path d="M20 4 Q14 16 12 26" stroke="#5AA56C" stroke-width="1" fill="none"/>
+        </svg>
+
+        <!-- SCREEN 1 — "Hoy" with tasks (main entry) -->
+        <div class="ks-screen ks-screen-1">
           <div class="phone-screen">
             <!-- Coral header (status bar + content unified, no seam) -->
             <div class="ps-header-coral">
@@ -2694,6 +2893,86 @@
             </div>
           </div>
         </div>
+
+        <!-- SCREEN 2 — Balance (reparto justo, feature único de Kinday) -->
+        <div class="ks-screen ks-screen-2">
+          <div class="phone-screen ks-balance">
+            <!-- Coral header on screen 2 too -->
+            <div class="ps-header-coral">
+              <div class="ps-statusbar">
+                <span class="ps-time">9:41</span>
+                <span class="ps-icons">
+                  <svg width="14" height="9" viewBox="0 0 17 11" fill="white"><rect x="0" y="7" width="3" height="4" rx="0.5"/><rect x="4" y="5" width="3" height="6" rx="0.5"/><rect x="8" y="3" width="3" height="8" rx="0.5"/><rect x="12" y="1" width="3" height="10" rx="0.5"/></svg>
+                  <svg width="22" height="10" viewBox="0 0 25 11" fill="white"><rect x="0" y="1.5" width="20" height="8" rx="2" stroke="white" stroke-width="1" fill="none"/><rect x="1.5" y="3" width="14" height="5" rx="0.5" fill="white"/><rect x="21" y="4" width="1.5" height="3" rx="0.5" fill="white"/></svg>
+                </span>
+              </div>
+              <div class="ps-header-content">
+                <div class="ks-bal-title">Reparto<br>de la semana</div>
+                <div class="ks-bal-sub">Esta semana respiraste mejor</div>
+              </div>
+            </div>
+
+            <!-- Balance card -->
+            <div class="ks-bal-content">
+
+              <div class="ks-bal-card">
+                <div class="ks-bal-card-head">
+                  <span class="ks-bal-card-title">Balance</span>
+                  <span class="ks-bal-card-period">Semana</span>
+                </div>
+
+                <!-- Stacked bar -->
+                <div class="ks-bal-bar">
+                  <span style="width: 38%; background: #D4547A;"></span>
+                  <span style="width: 28%; background: #1F8A4D;"></span>
+                  <span style="width: 22%; background: #7A4DB5;"></span>
+                  <span style="width: 12%; background: #4A5FD5;"></span>
+                </div>
+
+                <!-- Legend -->
+                <div class="ks-bal-legend">
+                  <span><i style="background:#D4547A;"></i>Hijos 38%</span>
+                  <span><i style="background:#1F8A4D;"></i>Casa 28%</span>
+                  <span><i style="background:#7A4DB5;"></i>Tú 22%</span>
+                  <span><i style="background:#4A5FD5;"></i>Escuela 12%</span>
+                </div>
+              </div>
+
+              <!-- Partner split -->
+              <div class="ks-partner-card">
+                <div class="ks-partner-head">CARGA COMPARTIDA</div>
+                <div class="ks-partner-row">
+                  <div class="ks-partner-person">
+                    <span class="ks-partner-avatar ks-partner-me">S</span>
+                    <div>
+                      <div class="ks-partner-name">Sofía</div>
+                      <div class="ks-partner-meta">12 tareas</div>
+                    </div>
+                    <span class="ks-partner-pct">53%</span>
+                  </div>
+                  <div class="ks-partner-row-bar">
+                    <span style="width: 53%; background: #E88B58;"></span>
+                  </div>
+                </div>
+                <div class="ks-partner-row">
+                  <div class="ks-partner-person">
+                    <span class="ks-partner-avatar ks-partner-them">D</span>
+                    <div>
+                      <div class="ks-partner-name">Diego</div>
+                      <div class="ks-partner-meta">10 tareas</div>
+                    </div>
+                    <span class="ks-partner-pct">47%</span>
+                  </div>
+                  <div class="ks-partner-row-bar">
+                    <span style="width: 47%; background: #4A5FD5;"></span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>
