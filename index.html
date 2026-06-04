@@ -133,6 +133,14 @@
     }
     .nav-links a:hover { color: var(--coral); }
 
+    /* Default: show desktop label, hide mobile label */
+    .nav-cta-text-mobile { display: none; }
+    .nav-cta-text-desktop { display: inline; }
+    @media (max-width: 720px) {
+      .nav-cta-text-mobile { display: inline !important; }
+      .nav-cta-text-desktop { display: none !important; }
+    }
+
     /* Download CTA in nav (always visible) */
     .nav-cta {
       display: inline-flex; align-items: center; gap: 6px;
@@ -150,19 +158,27 @@
       transform: translateY(-1px);
       box-shadow: 0 8px 22px rgba(232, 139, 88, 0.45);
     }
-    /* Mobile nav: clean and compact */
+    /* Mobile nav: Peanut-style — bold logo + bold CTA */
     @media (max-width: 720px) {
       nav {
-        padding: 12px 18px !important;
+        padding: 14px 18px !important;
+        background: rgba(255, 251, 246, 0.95) !important;
       }
-      .logo { font-size: 19px !important; gap: 8px !important; }
-      .logo-mark { width: 28px !important; height: 28px !important; }
-      .logo-mark svg { width: 20px !important; height: 20px !important; }
+      .logo {
+        font-size: 22px !important;
+        gap: 8px !important;
+        font-weight: 800 !important;
+      }
+      .logo-mark { width: 32px !important; height: 32px !important; }
+      .logo-mark svg { width: 22px !important; height: 22px !important; }
       .nav-text-links { display: none !important; }
       .nav-cta {
-        padding: 9px 16px !important;
+        padding: 11px 20px !important;
         font-size: 13px !important;
-        box-shadow: 0 4px 12px rgba(232, 139, 88, 0.3);
+        font-weight: 800 !important;
+        letter-spacing: 1px !important;
+        text-transform: uppercase !important;
+        box-shadow: 0 6px 18px rgba(232, 139, 88, 0.4) !important;
       }
       .nav-cta-icon { display: none !important; }
     }
@@ -2004,7 +2020,8 @@
         </span>
         <a href="#" class="nav-cta">
           <span class="nav-cta-icon">↓</span>
-          Descarga app
+          <span class="nav-cta-text-desktop">Descarga app</span>
+          <span class="nav-cta-text-mobile">Gratis</span>
         </a>
       </div>
     </div>
