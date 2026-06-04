@@ -399,6 +399,101 @@
       top: 4px; left: 3px;
       transform: rotate(-45deg);
     }
+
+    /* ===== LIVE ANIMATIONS — task self-checks in loop ===== */
+    @keyframes liveCheckFill-1 {
+      0%, 30%        { background: transparent; border-color: var(--sand); }
+      36%, 90%       { background: var(--c); border-color: var(--c); }
+      96%, 100%      { background: transparent; border-color: var(--sand); }
+    }
+    @keyframes liveCheckMark-1 {
+      0%, 30%        { opacity: 0; transform: rotate(-45deg) scale(0.3); }
+      36%, 90%       { opacity: 1; transform: rotate(-45deg) scale(1); }
+      96%, 100%      { opacity: 0; transform: rotate(-45deg) scale(0.3); }
+    }
+    @keyframes liveTextDone-1 {
+      0%, 30%        { color: var(--charcoal); text-decoration: none; }
+      36%, 90%       { color: var(--gray); text-decoration: line-through; }
+      96%, 100%      { color: var(--charcoal); text-decoration: none; }
+    }
+
+    @keyframes liveCheckFill-2 {
+      0%, 58%        { background: transparent; border-color: var(--sand); }
+      64%, 95%       { background: var(--c); border-color: var(--c); }
+      99%, 100%      { background: transparent; border-color: var(--sand); }
+    }
+    @keyframes liveCheckMark-2 {
+      0%, 58%        { opacity: 0; transform: rotate(-45deg) scale(0.3); }
+      64%, 95%       { opacity: 1; transform: rotate(-45deg) scale(1); }
+      99%, 100%      { opacity: 0; transform: rotate(-45deg) scale(0.3); }
+    }
+    @keyframes liveTextDone-2 {
+      0%, 58%        { color: var(--charcoal); text-decoration: none; }
+      64%, 95%       { color: var(--gray); text-decoration: line-through; }
+      99%, 100%      { color: var(--charcoal); text-decoration: none; }
+    }
+
+    .ps-task.live-1 .ps-check {
+      animation: liveCheckFill-1 11s ease-in-out infinite;
+    }
+    .ps-task.live-1 .ps-check::after {
+      content: '';
+      width: 8px; height: 4px;
+      border-left: 1.5px solid #fff;
+      border-bottom: 1.5px solid #fff;
+      position: absolute;
+      top: 4px; left: 3px;
+      transform: rotate(-45deg) scale(0.3);
+      opacity: 0;
+      animation: liveCheckMark-1 11s ease-in-out infinite;
+    }
+    .ps-task.live-1 .ps-task-name {
+      animation: liveTextDone-1 11s ease-in-out infinite;
+    }
+
+    .ps-task.live-2 .ps-check {
+      animation: liveCheckFill-2 11s ease-in-out infinite;
+    }
+    .ps-task.live-2 .ps-check::after {
+      content: '';
+      width: 8px; height: 4px;
+      border-left: 1.5px solid #fff;
+      border-bottom: 1.5px solid #fff;
+      position: absolute;
+      top: 4px; left: 3px;
+      transform: rotate(-45deg) scale(0.3);
+      opacity: 0;
+      animation: liveCheckMark-2 11s ease-in-out infinite;
+    }
+    .ps-task.live-2 .ps-task-name {
+      animation: liveTextDone-2 11s ease-in-out infinite;
+    }
+
+    /* Partner avatar pulse — fires around the time live-2 (Diego's task) gets checked */
+    @keyframes partnerPing {
+      0%, 56%        { box-shadow: 0 0 0 0 rgba(74, 95, 213, 0); }
+      62%            { box-shadow: 0 0 0 0 rgba(74, 95, 213, 0.55); }
+      72%            { box-shadow: 0 0 0 7px rgba(74, 95, 213, 0); }
+      100%           { box-shadow: 0 0 0 0 rgba(74, 95, 213, 0); }
+    }
+    .app-showcase .ps-pa-2 {
+      animation: partnerPing 11s ease-out infinite;
+    }
+
+    /* Live indicator dot next to "Hoy" — shows app is real-time */
+    .ps-live-dot {
+      display: inline-block;
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #1F8A4D;
+      margin-left: 8px;
+      vertical-align: middle;
+      animation: liveDotPulse 2.4s ease-in-out infinite;
+    }
+    @keyframes liveDotPulse {
+      0%, 100%       { opacity: 1; transform: scale(1); }
+      50%            { opacity: 0.5; transform: scale(0.85); }
+    }
     .ps-task-name {
       font-size: 12.5px; font-weight: 600;
       color: var(--charcoal);
@@ -2445,7 +2540,7 @@
             <div class="ps-header">
               <div>
                 <div class="ps-date">Martes 4 de junio</div>
-                <div class="ps-title">Hoy</div>
+                <div class="ps-title">Hoy<span class="ps-live-dot" title="Sync en vivo"></span></div>
               </div>
               <div class="ps-avatar">M</div>
             </div>
@@ -2463,7 +2558,7 @@
                 <span class="ps-pillar-name">Hijos</span>
                 <span class="ps-pillar-count">3</span>
               </div>
-              <div class="ps-task">
+              <div class="ps-task live live-1">
                 <div class="ps-check"></div>
                 <div>
                   <div class="ps-task-name">Lonchera Mateo</div>
@@ -2486,7 +2581,7 @@
                 <span class="ps-pillar-name">Casa</span>
                 <span class="ps-pillar-count">2</span>
               </div>
-              <div class="ps-task">
+              <div class="ps-task live live-2">
                 <div class="ps-check"></div>
                 <div>
                   <div class="ps-task-name">Pagar luz</div>
