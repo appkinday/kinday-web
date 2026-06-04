@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kinday — Comparación de tipografías</title>
+
+  <!-- Load all candidate fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --coral: #E88B58;
+      --coral-deep: #D67740;
+      --cream: #FFF4EA;
+      --ivory: #FFFBF6;
+      --charcoal: #343433;
+      --gray: #74716D;
+      --sand: #E8DED4;
+      --pastel-1: #FDF1F5;
+      --pastel-2: #FFF7E8;
+      --coral-soft: #FBEDE5;
+    }
+    body {
+      background: var(--ivory);
+      color: var(--charcoal);
+      padding: 48px 24px;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .page-header {
+      max-width: 760px;
+      margin: 0 auto 48px;
+      text-align: center;
+    }
+    .page-header h1 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      letter-spacing: -0.8px;
+    }
+    .page-header p {
+      font-size: 15px;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    .options {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .option {
+      background: linear-gradient(180deg, var(--pastel-1) 0%, var(--coral-soft) 60%, var(--pastel-2) 100%);
+      border-radius: 24px;
+      padding: 40px 32px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .option-label {
+      position: absolute;
+      top: 16px; right: 20px;
+      background: #FFFFFF;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--coral);
+      text-transform: uppercase;
+      font-family: -apple-system, sans-serif;
+    }
+
+    .opt-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .opt-brand-icon {
+      width: 28px; height: 28px;
+      background: var(--coral);
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      color: white;
+      font-size: 16px;
+    }
+    .opt-brand-text {
+      font-weight: 800;
+      font-size: 19px;
+      color: var(--coral);
+      letter-spacing: -0.4px;
+    }
+
+    .opt-title {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.0;
+      color: var(--charcoal);
+      margin-bottom: 14px;
+    }
+
+    .opt-sub {
+      font-size: 15px;
+      color: var(--gray);
+      font-weight: 500;
+      line-height: 1.55;
+      margin-bottom: 22px;
+      max-width: 440px;
+    }
+
+    .opt-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--coral);
+      color: white;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: -0.2px;
+      box-shadow: 0 6px 18px rgba(232, 139, 88, 0.3);
+    }
+
+    .opt-meta {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(232, 139, 88, 0.15);
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .opt-meta-item {
+      font-size: 12px;
+      color: var(--gray);
+      font-weight: 500;
+    }
+    .opt-meta-item strong { color: var(--charcoal); font-weight: 700; }
+
+    /* ================== FONT VARIANTS ================== */
+
+    .font-dm-sans, .font-dm-sans * { font-family: 'DM Sans', sans-serif; }
+    .font-manrope, .font-manrope * { font-family: 'Manrope', sans-serif; }
+    .font-jakarta, .font-jakarta * { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-inter, .font-inter * { font-family: 'Inter', sans-serif; }
+    .font-bricolage, .font-bricolage * { font-family: 'Bricolage Grotesque', sans-serif; }
+
+    /* Editorial pair: serif title + sans body */
+    .font-pair .opt-title { font-family: 'Fraunces', Georgia, serif; font-weight: 600; letter-spacing: -1.8px; }
+    .font-pair .opt-sub,
+    .font-pair .opt-cta,
+    .font-pair .opt-brand-text,
+    .font-pair .opt-meta { font-family: 'Manrope', sans-serif; }
+  </style>
+</head>
+<body>
+
+  <div class="page-header">
+    <h1>Tipografías — ¿cuál se siente más Kinday?</h1>
+    <p>Mismo contenido en 6 sistemas. Elige la que sientas que respira más a tu brand.</p>
+  </div>
+
+  <div class="options">
+
+    <!-- OPCIÓN 1: DM Sans (actual) -->
+    <div class="option font-dm-sans">
+      <span class="option-label">Opción 1 · Actual</span>
+      <div class="opt-brand">
+        <div class="opt-brand-icon">✱</div>
+        <span class="opt-brand-text">kinday</span>
+      </div>
+      <h2 class="opt-title">Tu día,<br>sin cabeza llena.</h2>
+      <p class="opt-sub">Kinday aterriza tus tareas en pilares y reparte la carga con quien comparte tu hogar. Sin sumar a tu cabeza.</p>
+      <a class="opt-cta">Descarga gratis →</a>
+      <div class="opt-meta">
+        <span class="opt-meta-item"><strong>DM Sans</strong> · Google</span>
+        <span class="opt-meta-item">Neutral geométrica · Muy común en SaaS</span>
+        <span class="opt-meta-item">⚠️ "Default seguro"</span>
+      </div>
+    </div>
+
+    <!-- OPCIÓN 2: Manrope (recomendada) -->
+    <div class="option font-manrope">
+      <span class="option-label">Opción 2 · Recomendada</span>
+      <div class="opt-brand">
+        <div class="opt-brand-icon">✱</div>
+        <span class="opt-brand-text">kinday</span>
+      </div>
+      <h2 class="opt-title">Tu día,<br>sin cabeza llena.</h2>
+      <p class="opt-sub">Kinday aterriza tus tareas en pilares y reparte la carga con quien comparte tu hogar. Sin sumar a tu cabeza.</p>
+      <a class="opt-cta">Descarga gratis →</a>
+      <div class="opt-meta">
+        <span class="opt-meta-item"><strong>Manrope</strong> · Google</span>
+        <span class="opt-meta-item">Geométrica con terminales redondeados · Cálida</span>
+        <span class="opt-meta-item">✓ Headspace-vibe</span>
+      </div>
+    </div>
+
+    <!-- OPCIÓN 3: Plus Jakarta Sans -->
+    <div class="option font-jakarta">
+      <span class="option-label">Opción 3</span>
+      <div class="opt-brand">
+        <div class="opt-brand-icon">✱</div>
+        <span class="opt-brand-text">kinday</span>
+      </div>
+      <h2 class="opt-title">Tu día,<br>sin cabeza llena.</h2>
+      <p class="opt-sub">Kinday aterriza tus tareas en pilares y reparte la carga con quien comparte tu hogar. Sin sumar a tu cabeza.</p>
+      <a class="opt-cta">Descarga gratis →</a>
+      <div class="opt-meta">
+        <span class="opt-meta-item"><strong>Plus Jakarta Sans</strong> · Google</span>
+        <span class="opt-meta-item">Moderna con personalidad · Human-tech</span>
+        <span class="opt-meta-item">✓ Punto medio sin riesgo</span>
+      </div>
+    </div>
+
+    <!-- OPCIÓN 4: Inter -->
+    <div class="option font-inter">
+      <span class="option-label">Opción 4</span>
+      <div class="opt-brand">
+        <div class="opt-brand-icon">✱</div>
+        <span class="opt-brand-text">kinday</span>
+      </div>
+      <h2 class="opt-title">Tu día,<br>sin cabeza llena.</h2>
+      <p class="opt-sub">Kinday aterriza tus tareas en pilares y reparte la carga con quien comparte tu hogar. Sin sumar a tu cabeza.</p>
+      <a class="opt-cta">Descarga gratis →</a>
+      <div class="opt-meta">
+        <span class="opt-meta-item"><strong>Inter</strong> · Rasmus Andersson</span>
+        <span class="opt-meta-item">UI clásica · Súper legible</span>
+        <span class="opt-meta-item">⚠️ Muy "Linear/Figma"</span>
+      </div>
+    </div>
+
+    <!-- OPCIÓN 5: Bricolage Grotesque -->
+    <div class="option font-bricolage">
+      <span class="option-label">Opción 5 · Quirky</span>
+      <div class="opt-brand">
+        <div class="opt-brand-icon">✱</div>
+        <span class="opt-brand-text">kinday</span>
+      </div>
+      <h2 class="opt-title">Tu día,<br>sin cabeza llena.</h2>
+      <p class="opt-sub">Kinday aterriza tus tareas en pilares y reparte la carga con quien comparte tu hogar. Sin sumar a tu cabeza.</p>
+      <a class="opt-cta">Descarga gratis →</a>
+      <div class="opt-meta">
+        <span class="opt-meta-item"><strong>Bricolage Grotesque</strong> · Google</span>
+        <span class="opt-meta-item">Quirks sutiles, sensación handmade</span>
+        <span class="opt-meta-item">✨ Más memorable, más arriesgada</span>
+      </div>
+    </div>
+
+    <!-- OPCIÓN 6: Fraunces + Manrope (editorial pair) -->
+    <div class="option font-pair">
+      <span class="option-label">Opción 6 · Editorial</span>
+      <div class="opt-brand">
+        <div class="opt-brand-icon">✱</div>
+        <span class="opt-brand-text">kinday</span>
+      </div>
+      <h2 class="opt-title">Tu día,<br>sin cabeza llena.</h2>
+      <p class="opt-sub">Kinday aterriza tus tareas en pilares y reparte la carga con quien comparte tu hogar. Sin sumar a tu cabeza.</p>
+      <a class="opt-cta">Descarga gratis →</a>
+      <div class="opt-meta">
+        <span class="opt-meta-item"><strong>Fraunces</strong> (títulos) + <strong>Manrope</strong> (texto)</span>
+        <span class="opt-meta-item">Serif display moderna · Premium editorial</span>
+        <span class="opt-meta-item">✨ Más diferenciador, tipo Mailchimp/Substack</span>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
