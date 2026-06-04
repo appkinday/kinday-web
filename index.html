@@ -504,8 +504,54 @@
       .peanut-visual { min-height: 360px; }
     }
 
+    /* Tab pills navigation (mobile only) */
+    .peanut-tabs {
+      display: none;
+    }
     @media (max-width: 720px) {
-      /* Showcase: horizontal swipeable carousel instead of vertical stack */
+      .peanut-tabs {
+        display: flex;
+        gap: 8px;
+        padding: 0 22px;
+        margin-bottom: 24px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .peanut-tab {
+        padding: 8px 14px;
+        border-radius: 999px;
+        font-size: 12.5px;
+        font-weight: 700;
+        letter-spacing: -0.1px;
+        color: var(--gray);
+        background: rgba(255,255,255,0.7);
+        border: 1px solid var(--sand);
+        cursor: pointer;
+        transition: all 220ms cubic-bezier(0.33, 1, 0.68, 1);
+        font-family: inherit;
+        white-space: nowrap;
+      }
+      .peanut-tab.active {
+        background: var(--coral);
+        color: #FFFFFF;
+        border-color: var(--coral);
+        box-shadow: 0 6px 18px rgba(232, 139, 88, 0.35);
+        transform: translateY(-1px);
+      }
+      .peanut-section-eyebrow {
+        text-align: center;
+        font-size: 11px; font-weight: 800;
+        letter-spacing: 1.5px; color: var(--coral);
+        margin-bottom: 12px;
+        text-transform: uppercase;
+        padding: 0 22px;
+        display: block;
+      }
+    }
+    .peanut-section-eyebrow { display: none; }
+
+    @media (max-width: 720px) {
+      /* Showcase: horizontal swipeable carousel with tab pills navigation */
       .peanut-section { padding: 60px 0 70px !important; }
       .peanut-inner {
         display: flex !important;
@@ -514,17 +560,38 @@
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
-        padding: 0 22px 16px;
+        padding: 4px 22px 16px;
         scrollbar-width: none;
       }
       .peanut-inner::-webkit-scrollbar { display: none; }
       .peanut-col {
-        flex: 0 0 85%;
+        flex: 0 0 88%;
         scroll-snap-align: center;
         min-width: 280px;
       }
       .peanut-title { font-size: 28px !important; }
       .peanut-desc { font-size: 14.5px !important; margin-bottom: 24px !important; }
+
+      /* Dot indicator below for extra clarity */
+      .peanut-dots {
+        display: flex;
+        gap: 6px;
+        justify-content: center;
+        margin-top: 18px;
+      }
+      .peanut-dot {
+        width: 6px; height: 6px;
+        border-radius: 50%;
+        background: rgba(0,0,0,0.15);
+        transition: all 220ms;
+      }
+      .peanut-dot.active {
+        width: 20px;
+        background: var(--coral);
+        border-radius: 999px;
+      }
+    }
+    .peanut-dots { display: none; }
 
       /* Pillars visual: cards no longer absolute, simple flex stack */
       .peanut-visual { min-height: auto !important; position: relative; }
@@ -2002,7 +2069,13 @@
        SHOWCASE — Peanut-style 3 columns with layered cards
        ============================================================ -->
   <section class="peanut-section reveal" id="valor">
-    <div class="peanut-inner">
+    <span class="peanut-section-eyebrow">Cómo te ayudo</span>
+    <div class="peanut-tabs" role="tablist" aria-label="Features">
+      <button class="peanut-tab active" data-target="0" type="button">Pilares</button>
+      <button class="peanut-tab" data-target="1" type="button">Reparto</button>
+      <button class="peanut-tab" data-target="2" type="button">Foco</button>
+    </div>
+    <div class="peanut-inner" id="peanutInner">
 
       <!-- Column 1: PILARES (4 colored pillar cards) -->
       <div class="peanut-col reveal d1">
@@ -2445,6 +2518,42 @@
         // Don't force them to answer again — leave the hook visible but skipable
       }
     } catch(e) {}
+
+    // ============================================================
+    // SHOWCASE TABS — sync swipe ↔ tab pill active state
+    // ============================================================
+    (() => {
+      const inner = document.getElementById('peanutInner');
+      const tabs = document.querySelectorAll('.peanut-tab');
+      if (!inner || !tabs.length) return;
+      const cols = inner.querySelectorAll('.peanut-col');
+
+      // Click a tab → scroll to that column
+      tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => {
+          const col = cols[i];
+          if (col) col.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        });
+      });
+
+      // Scroll the carousel → update active tab
+      let rafId = null;
+      const onScroll = () => {
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(() => {
+          const innerCenter = inner.scrollLeft + inner.clientWidth / 2;
+          let best = 0;
+          let bestDist = Infinity;
+          cols.forEach((col, i) => {
+            const colCenter = col.offsetLeft + col.clientWidth / 2;
+            const d = Math.abs(colCenter - innerCenter);
+            if (d < bestDist) { bestDist = d; best = i; }
+          });
+          tabs.forEach((t, i) => t.classList.toggle('active', i === best));
+        });
+      };
+      inner.addEventListener('scroll', onScroll, { passive: true });
+    })();
 
     // ============================================================
     // Scroll-triggered reveals
