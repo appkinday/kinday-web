@@ -551,26 +551,25 @@
     .peanut-section-eyebrow { display: none; }
 
     @media (max-width: 720px) {
-      /* Showcase: horizontal swipeable carousel with tab pills navigation */
-      .peanut-section { padding: 60px 0 70px !important; }
+      /* Showcase: simple vertical stack — predictable, easy */
+      .peanut-section { padding: 60px 22px 70px !important; }
       .peanut-inner {
         display: flex !important;
         grid-template-columns: none !important;
-        gap: 16px !important;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        padding: 4px 22px 16px;
-        scrollbar-width: none;
+        flex-direction: column !important;
+        gap: 48px !important;
+        padding: 0 !important;
+        overflow: visible !important;
       }
-      .peanut-inner::-webkit-scrollbar { display: none; }
       .peanut-col {
-        flex: 0 0 88%;
-        scroll-snap-align: center;
-        min-width: 280px;
+        width: 100% !important;
+        max-width: 360px !important;
+        margin: 0 auto !important;
       }
       .peanut-title { font-size: 28px !important; }
       .peanut-desc { font-size: 14.5px !important; margin-bottom: 24px !important; }
+      .peanut-tabs { display: none !important; }
+      .peanut-section-eyebrow { display: none !important; }
 
       /* ====== SIMPLIFIED MOBILE VISUALS ======
          Reset to clean centered single-stack
@@ -666,28 +665,22 @@
       .breathing-mark svg { width: 46px !important; height: 46px !important; }
     }
 
-    /* Testimonials: horizontal swipeable on mobile */
+    /* Testimonials: simple vertical stack on mobile */
     @media (max-width: 720px) {
-      .testimonials-section { padding: 60px 0 70px !important; }
-      .testimonials-inner { padding: 0; }
-      .testimonials-header { padding: 0 22px !important; margin-bottom: 36px !important; }
+      .testimonials-section { padding: 60px 22px 70px !important; }
+      .testimonials-header { margin-bottom: 36px !important; }
       .testimonials-grid {
         display: flex !important;
         grid-template-columns: none !important;
-        gap: 14px !important;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        padding: 0 22px 14px;
-        scrollbar-width: none;
+        flex-direction: column !important;
+        gap: 16px !important;
       }
-      .testimonials-grid::-webkit-scrollbar { display: none; }
       .testimonial {
-        flex: 0 0 85%;
-        scroll-snap-align: center;
-        min-width: 280px;
+        width: 100% !important;
+        max-width: 360px !important;
+        margin: 0 auto !important;
         padding: 28px 24px 26px !important;
-        min-height: 340px !important;
+        min-height: auto !important;
       }
       .testimonial::before { font-size: 80px !important; top: 8px !important; left: 18px !important; }
       .testimonial-quote { margin-top: 44px !important; font-size: 17px !important; }
