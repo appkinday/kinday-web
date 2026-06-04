@@ -643,22 +643,28 @@
       .breathing-mark svg { width: 46px !important; height: 46px !important; }
     }
 
-    /* Testimonials: simple vertical stack on mobile */
+    /* Testimonials: horizontal swipe carousel on mobile */
     @media (max-width: 720px) {
-      .testimonials-section { padding: 60px 22px 70px !important; }
-      .testimonials-header { margin-bottom: 36px !important; }
+      .testimonials-section { padding: 60px 0 70px !important; }
+      .testimonials-inner { padding: 0; }
+      .testimonials-header { padding: 0 22px !important; margin-bottom: 36px !important; }
       .testimonials-grid {
         display: flex !important;
         grid-template-columns: none !important;
-        flex-direction: column !important;
-        gap: 16px !important;
+        gap: 14px !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding: 0 22px 14px;
+        scrollbar-width: none;
       }
+      .testimonials-grid::-webkit-scrollbar { display: none; }
       .testimonial {
-        width: 100% !important;
-        max-width: 360px !important;
-        margin: 0 auto !important;
+        flex: 0 0 85%;
+        scroll-snap-align: center;
+        min-width: 280px;
         padding: 28px 24px 26px !important;
-        min-height: auto !important;
+        min-height: 340px !important;
       }
       .testimonial::before { font-size: 80px !important; top: 8px !important; left: 18px !important; }
       .testimonial-quote { margin-top: 44px !important; font-size: 17px !important; }
