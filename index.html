@@ -572,26 +572,66 @@
       .peanut-title { font-size: 28px !important; }
       .peanut-desc { font-size: 14.5px !important; margin-bottom: 24px !important; }
 
-      /* Dot indicator below for extra clarity */
-      .peanut-dots {
-        display: flex;
-        gap: 6px;
-        justify-content: center;
-        margin-top: 18px;
+      /* ====== SIMPLIFIED MOBILE VISUALS ======
+         Reset to clean centered single-stack
+         Remove rotations, remove secondary elements */
+      .peanut-visual {
+        position: relative !important;
+        min-height: auto !important;
+        padding: 0 !important;
       }
-      .peanut-dot {
-        width: 6px; height: 6px;
-        border-radius: 50%;
-        background: rgba(0,0,0,0.15);
-        transition: all 220ms;
+
+      /* PILARES: clean vertical stack, no rotations */
+      .peanut-visual-pillars {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        max-width: 100% !important;
       }
-      .peanut-dot.active {
-        width: 20px;
-        background: var(--coral);
-        border-radius: 999px;
+      .pn-pillar {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      /* REPARTO: only balance card, hide mini stats */
+      .peanut-visual-reparto {
+        display: flex !important;
+        justify-content: center !important;
+      }
+      .pn-balance-card {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      .pn-mini-stat {
+        display: none !important;
+      }
+
+      /* FOCO: only the foco card, hide week strip + other pillars */
+      .peanut-visual-foco {
+        display: flex !important;
+        justify-content: center !important;
+      }
+      .pn-foco-card {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      .pn-week-strip,
+      .pn-foco-other {
+        display: none !important;
       }
     }
-    .peanut-dots { display: none; }
 
       /* Pillars visual: cards no longer absolute, simple flex stack */
       .peanut-visual { min-height: auto !important; position: relative; }
