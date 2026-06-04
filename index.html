@@ -104,17 +104,14 @@
     nav {
       position: sticky; top: 0; z-index: 100;
       padding: 18px 28px;
-      background: transparent;
-      border-bottom: 1px solid transparent;
-      transition: background 300ms ease, backdrop-filter 300ms ease, border-color 300ms;
-      animation: stepFade 580ms cubic-bezier(0.33, 1, 0.68, 1);
-    }
-    nav.scrolled {
       background: rgba(255, 251, 246, 0.85);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-bottom-color: var(--sand);
+      border-bottom: 1px solid transparent;
+      transition: border-color 300ms;
+      animation: stepFade 580ms cubic-bezier(0.33, 1, 0.68, 1);
     }
+    nav.scrolled { border-bottom-color: var(--sand); }
     .nav-inner {
       max-width: 1200px; margin: 0 auto;
       display: flex; align-items: center; justify-content: space-between;
@@ -131,12 +128,10 @@
     .logo-mark svg { width: 22px; height: 22px; fill: #FFFFFF; }
     .nav-links { display: flex; gap: 28px; align-items: center; }
     .nav-links a {
-      color: rgba(255, 255, 255, 0.92); text-decoration: none;
+      color: var(--gray); text-decoration: none;
       font-size: 14px; font-weight: 600; transition: color 200ms;
     }
-    .nav-links a:hover { color: #FFFFFF; }
-    nav.scrolled .nav-links a { color: var(--gray); }
-    nav.scrolled .nav-links a:hover { color: var(--coral); }
+    .nav-links a:hover { color: var(--coral); }
 
     /* Default: show desktop label, hide mobile label */
     .nav-cta-text-mobile { display: none; }
@@ -146,35 +141,29 @@
       .nav-cta-text-desktop { display: none !important; }
     }
 
-    /* Download CTA in nav (always visible) — inverse at top, coral when scrolled */
+    /* Download CTA in nav (always visible) */
     .nav-cta {
       display: inline-flex; align-items: center; gap: 6px;
       padding: 9px 18px;
-      background: #FFFFFF;
-      color: var(--coral) !important;
+      background: var(--coral);
+      color: #FFFFFF !important;
       border-radius: 999px;
       font-size: 13.5px; font-weight: 700;
       letter-spacing: -0.2px;
       text-decoration: none;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
-      transition: transform 200ms, box-shadow 200ms, background 300ms, color 300ms;
+      box-shadow: 0 4px 14px rgba(232, 139, 88, 0.3);
+      transition: transform 200ms, box-shadow 200ms;
     }
     .nav-cta:hover {
       transform: translateY(-1px);
-      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
-    }
-    nav.scrolled .nav-cta {
-      background: var(--coral);
-      color: #FFFFFF !important;
-      box-shadow: 0 4px 14px rgba(232, 139, 88, 0.3);
-    }
-    nav.scrolled .nav-cta:hover {
       box-shadow: 0 8px 22px rgba(232, 139, 88, 0.45);
     }
     /* Mobile nav: Peanut-style — bold logo + bold CTA */
     @media (max-width: 720px) {
-      nav { padding: 14px 18px !important; }
-      nav.scrolled { background: rgba(255, 251, 246, 0.95) !important; }
+      nav {
+        padding: 14px 18px !important;
+        background: rgba(255, 251, 246, 0.95) !important;
+      }
       .logo {
         font-size: 22px !important;
         gap: 8px !important;
@@ -199,7 +188,7 @@
 
     .peanut-section {
       padding: 100px 28px 120px;
-      background: linear-gradient(180deg, var(--ivory) 0%, var(--cream) 60%, var(--coral-soft) 100%);
+      background: linear-gradient(180deg, var(--pastel-2) 0%, var(--coral-soft) 100%);
       position: relative;
       overflow: hidden;
     }
@@ -1028,9 +1017,7 @@
       min-height: auto;
       padding: 96px 28px 80px;
       display: flex; align-items: center; justify-content: center;
-      background:
-        radial-gradient(ellipse at 70% 0%, rgba(214, 119, 64, 0.55) 0%, transparent 60%),
-        linear-gradient(180deg, #EA9560 0%, #F4B585 30%, #FFD4B0 65%, var(--pastel-2) 100%);
+      background: linear-gradient(180deg, var(--pastel-1) 0%, var(--coral-soft) 60%, var(--pastel-2) 100%);
       position: relative;
     }
     .question-inner {
@@ -1128,8 +1115,7 @@
       font-weight: 800;
       letter-spacing: -2px;
       line-height: 1.02;
-      color: #FFFFFF;
-      text-shadow: 0 2px 12px rgba(120, 50, 10, 0.18);
+      color: var(--charcoal);
       margin-bottom: 22px;
       animation: stepFade 700ms cubic-bezier(0.33, 1, 0.68, 1) 400ms backwards;
     }
