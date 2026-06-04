@@ -572,14 +572,13 @@
         padding: 0 !important;
       }
 
-      /* PILARES: clean vertical stack, no rotations */
+      /* PILARES: clean vertical stack, subtle rotation only (no translateX) */
       .peanut-visual-pillars {
         display: flex !important;
         flex-direction: column !important;
         gap: 8px !important;
         max-width: 100% !important;
       }
-      /* On mobile keep relative + width 100% but PRESERVE rotation */
       .pn-pillar {
         position: relative !important;
         top: auto !important;
@@ -587,6 +586,11 @@
         width: 100% !important;
         max-width: 100% !important;
       }
+      /* Override inline transform to drop the desktop translateX, keep tilt */
+      .pn-pillar-1[style] { transform: rotate(-2deg) !important; }
+      .pn-pillar-2[style] { transform: rotate(1.5deg) !important; }
+      .pn-pillar-3[style] { transform: rotate(-1.5deg) !important; }
+      .pn-pillar-4[style] { transform: rotate(2deg) !important; }
 
       /* REPARTO: only balance card, hide mini stats */
       .peanut-visual-reparto {
