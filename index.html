@@ -302,52 +302,47 @@
       .phone-screen { min-height: 460px; }
     }
 
-    /* Decorative floating elements (Headspace-style) */
+    /* Decorative floating emoji (Headspace-style) */
     .deco {
       position: absolute;
       z-index: 3;
       pointer-events: none;
+      user-select: none;
+      line-height: 1;
     }
     .deco-flower {
-      top: 0; left: -10px;
-      transform: rotate(-12deg);
+      top: -10px; left: -10px;
+      font-size: 44px;
       animation: floatBob 6s ease-in-out infinite;
     }
     .deco-moon {
-      top: 10px; right: -10px;
-      transform: rotate(15deg);
+      top: 0; right: -8px;
+      font-size: 38px;
       animation: floatBob 7s ease-in-out infinite reverse;
-    }
-    .deco-cloud {
-      bottom: 60px; left: -30px;
-      opacity: 0.9;
-      animation: floatBob 8s ease-in-out infinite;
-      animation-delay: -2s;
+      animation-delay: -1.5s;
     }
     .deco-spark {
-      top: 200px; right: 10px;
+      top: 240px; right: -4px;
+      font-size: 22px;
       animation: floatBob 5s ease-in-out infinite reverse;
       animation-delay: -1s;
     }
     .deco-leaf {
-      bottom: 20px; right: 30px;
-      transform: rotate(20deg);
+      bottom: -8px; right: 30px;
+      font-size: 32px;
       animation: floatBob 7.5s ease-in-out infinite;
+      animation-delay: -3s;
     }
     @keyframes floatBob {
-      0%, 100% { transform: translate(0, 0) rotate(var(--r, 0deg)); }
-      50%      { transform: translate(0, -8px) rotate(calc(var(--r, 0deg) + 5deg)); }
+      0%, 100% { transform: translate(0, 0); }
+      50%      { transform: translate(0, -10px); }
     }
-    .deco-flower { --r: -12deg; }
-    .deco-moon { --r: 15deg; }
-    .deco-leaf { --r: 20deg; }
 
     @media (max-width: 880px) {
-      .deco-flower { width: 60px; height: 60px; top: -10px; left: -15px; }
-      .deco-moon { width: 44px; height: 44px; top: 0; right: -10px; }
-      .deco-cloud { width: 70px; height: 36px; bottom: 40px; left: -25px; }
-      .deco-spark { width: 18px; height: 18px; top: 170px; right: 5px; }
-      .deco-leaf { width: 30px; height: 30px; bottom: 10px; right: 20px; }
+      .deco-flower { font-size: 34px; top: -6px; left: -8px; }
+      .deco-moon { font-size: 28px; right: -4px; }
+      .deco-spark { font-size: 18px; top: 200px; right: -2px; }
+      .deco-leaf { font-size: 24px; bottom: -4px; right: 20px; }
     }
 
     /* ===== SCREEN 2 — Balance / Reparto view ===== */
@@ -2762,35 +2757,11 @@
 
       <div class="app-showcase-phone">
 
-        <!-- DECORATIVE FLOATING ELEMENTS (Headspace-style) -->
-        <svg class="deco deco-flower" width="80" height="80" viewBox="0 0 100 100" aria-hidden="true">
-          <g fill="#E88B58">
-            <circle cx="50" cy="20" r="14"/>
-            <circle cx="80" cy="40" r="14"/>
-            <circle cx="70" cy="75" r="14"/>
-            <circle cx="30" cy="75" r="14"/>
-            <circle cx="20" cy="40" r="14"/>
-          </g>
-          <circle cx="50" cy="50" r="11" fill="#FFD75E"/>
-        </svg>
-
-        <svg class="deco deco-moon" width="60" height="60" viewBox="0 0 60 60" aria-hidden="true">
-          <path d="M40 8 A22 22 0 1 0 52 40 A18 18 0 1 1 40 8 Z" fill="#C9B5E8"/>
-          <circle cx="55" cy="14" r="3" fill="#FFD75E"/>
-        </svg>
-
-        <svg class="deco deco-cloud" width="90" height="48" viewBox="0 0 90 48" aria-hidden="true">
-          <path d="M20 30 Q10 30 10 22 Q10 14 20 14 Q20 6 32 6 Q42 6 44 14 Q56 14 56 22 Q56 30 46 30 Z M55 36 Q48 36 48 30 Q48 24 55 24 Q56 18 65 18 Q73 18 75 24 Q82 24 82 30 Q82 36 75 36 Z" fill="#FFFFFF"/>
-        </svg>
-
-        <svg class="deco deco-spark" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
-          <path d="M11 0 L13 9 L22 11 L13 13 L11 22 L9 13 L0 11 L9 9 Z" fill="#FFD75E"/>
-        </svg>
-
-        <svg class="deco deco-leaf" width="38" height="38" viewBox="0 0 40 40" aria-hidden="true">
-          <path d="M20 4 Q4 12 6 28 Q22 32 34 18 Q36 6 20 4 Z" fill="#7AC586"/>
-          <path d="M20 4 Q14 16 12 26" stroke="#5AA56C" stroke-width="1" fill="none"/>
-        </svg>
+        <!-- DECORATIVE FLOATING EMOJI (Headspace-style) -->
+        <span class="deco deco-flower" aria-hidden="true">🌸</span>
+        <span class="deco deco-moon" aria-hidden="true">🌙</span>
+        <span class="deco deco-spark" aria-hidden="true">✨</span>
+        <span class="deco deco-leaf" aria-hidden="true">🌿</span>
 
         <!-- SCREEN 1 — "Hoy" with tasks (main entry) -->
         <div class="ks-screen ks-screen-1">
